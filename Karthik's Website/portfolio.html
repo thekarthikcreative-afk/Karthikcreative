@@ -55,18 +55,17 @@
       transition: all 0.3s;
     }
 
-    /* NAVIGATION */
     nav {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      margin-top:10px;
+      margin-top: 10px;
     }
 
     nav a {
       color: #fff;
       text-decoration: none;
-      margin: 0 10px;
+      margin: 5px 6px; /* reduced horizontal space */
       font-weight: bold;
       transition: color 0.3s;
     }
@@ -111,10 +110,11 @@
       font-size: 1.1em;
     }
 
+    /* EMBED VIDEO - Responsive ratio */
     .video-container {
       position: relative;
       width: 100%;
-      padding-bottom: 56.25%;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
       height: 0;
       overflow: hidden;
       border-radius: 10px;
@@ -130,6 +130,7 @@
       border-radius: 10px;
     }
 
+    /* FOOTER */
     footer {
       text-align: center;
       padding: 15px 10px;
@@ -139,6 +140,7 @@
       z-index: 5;
     }
 
+    /* SLIDESHOW BACKGROUND */
     .slideshow {
       position: fixed;
       top: 0;
@@ -164,14 +166,24 @@
       opacity: 1;
     }
 
-    /* Responsive / Mobile Hamburger */
+    /* 🌐 RESPONSIVE DESIGN */
+    @media (max-width: 1024px) {
+      section {
+        padding: 120px 40px 80px;
+      }
+      section h2 {
+        font-size: 2.2em;
+      }
+    }
+
+    /* Mobile / Tablet Navigation */
     @media (max-width: 768px) {
       .hamburger {
         display: flex;
       }
 
       nav {
-        display: none;
+        display: none; /* hidden by default */
         flex-direction: column;
         width: 100%;
         gap: 10px;
@@ -184,6 +196,22 @@
 
       nav.show {
         display: flex;
+      }
+
+      header h1 {
+        font-size: 1.3em;
+      }
+
+      section {
+        padding: 110px 25px 70px;
+      }
+
+      .portfolio-item h3 {
+        font-size: 1.4em;
+      }
+
+      .portfolio-item p {
+        font-size: 1em;
       }
     }
 
@@ -226,7 +254,7 @@
     </div>
 
     <nav id="nav">
-      <a href="index.html">Home</a>
+      <a href="index.html" style="color:#f39c12;">Home</a>
       <a href="about.html">About</a>
       <a href="portfolio.html" style="color:#f39c12;">Portfolio</a>
       <a href="qualification.html">Qualification</a>
@@ -292,6 +320,3 @@
   </script>
 </body>
 </html>
-
-
-
