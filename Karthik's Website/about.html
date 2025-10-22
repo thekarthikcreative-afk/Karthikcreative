@@ -61,6 +61,7 @@
       flex-direction: column;
       cursor: pointer;
       gap: 5px;
+      order: 0; /* ensures it's before nav */
     }
 
     .hamburger div {
@@ -157,12 +158,12 @@
     /* Tablets */
     @media (max-width: 992px) {
       header {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row; /* keep left-right alignment */
+        justify-content: space-between;
+        align-items: center;
         padding: 15px 25px;
       }
 
-      /* Show hamburger on tablet/mobile */
       .hamburger {
         display: flex;
       }
