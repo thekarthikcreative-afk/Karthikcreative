@@ -39,13 +39,13 @@
       margin: 0;
     }
 
-    /* Hamburger menu button - hidden on desktop */
+    /* Hamburger menu - hidden on desktop */
     .hamburger {
       display: none;
       flex-direction: column;
       cursor: pointer;
       gap: 5px;
-      order: 0; /* keeps it before nav */
+      order: 0;
     }
 
     .hamburger div {
@@ -176,27 +176,21 @@
       }
     }
 
-    /* Mobile / Tablet */
+    /* Mobile / Tablet Navigation */
     @media (max-width: 768px) {
-      header {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-      }
-
       .hamburger {
         display: flex;
       }
 
       nav {
-        position: absolute;      /* fixed position so header doesn't grow */
-        top: 60px;               /* below header */
+        position: absolute;
+        top: 60px;          /* below header */
         left: 0;
         width: 100%;
-        display: none;           /* hidden by default */
+        display: none;      /* hidden by default */
         flex-direction: column;
         gap: 10px;
-        background: rgba(0, 0, 0, 0.85);
+        background: rgba(0,0,0,0.85);
         padding: 10px 0;
         text-align: center;
         z-index: 15;
@@ -228,11 +222,6 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-      }
-
-      nav {
-        flex-direction: column;
-        margin-top: 10px;
       }
 
       nav a {
@@ -327,7 +316,6 @@
     // Hamburger menu toggle
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('nav');
-
     hamburger.addEventListener('click', () => {
       nav.classList.toggle('show');
     });
