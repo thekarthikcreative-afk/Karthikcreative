@@ -176,6 +176,7 @@
       }
     }
 
+    /* Mobile / Tablet */
     @media (max-width: 768px) {
       header {
         flex-direction: row;
@@ -188,15 +189,17 @@
       }
 
       nav {
-        display: none; /* hidden by default */
-        flex-direction: column;
+        position: absolute;      /* fixed position so header doesn't grow */
+        top: 60px;               /* below header */
+        left: 0;
         width: 100%;
+        display: none;           /* hidden by default */
+        flex-direction: column;
         gap: 10px;
-        margin-top: 10px;
-        text-align: center;
-        background: rgba(0, 0, 0, 0.8);
+        background: rgba(0, 0, 0, 0.85);
         padding: 10px 0;
-        border-radius: 10px;
+        text-align: center;
+        z-index: 15;
       }
 
       nav.show {
