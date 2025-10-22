@@ -60,6 +60,22 @@
       color: #f39c12;
     }
 
+    /* Hamburger menu button - hidden on desktop */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      order: 0; /* keeps it before nav */
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      transition: all 0.3s;
+    }
+
     section.page-content {
       position: relative;
       z-index: 10;
@@ -151,9 +167,30 @@
 
     @media (max-width: 992px) {
       header {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row; /* keep left-right alignment */
+        justify-content: space-between;
+        align-items: center;
         padding: 15px 25px;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      nav {
+        display: none; /* hidden by default */
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        margin-top: 10px;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 10px 0;
+        border-radius: 10px;
+      }
+
+      nav.show {
+        display: flex;
       }
 
       section.page-content {
@@ -223,7 +260,15 @@
 
   <header>
     <h1>Karthika Sundar</h1>
-    <nav>
+
+    <!-- Hamburger for mobile/tablet -->
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <nav id="nav">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="portfolio.html">Portfolio</a>
@@ -265,6 +310,7 @@
   </footer>
 
   <script>
+    // Slideshow
     const slides = document.querySelectorAll('.slideshow img');
     let current = 0;
     setInterval(() => {
@@ -272,6 +318,14 @@
       current = (current + 1) % slides.length;
       slides[current].classList.add('active');
     }, 10000);
+
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('show');
+    });
   </script>
 
 </body>
