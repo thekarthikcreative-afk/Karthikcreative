@@ -20,6 +20,7 @@
       box-sizing: border-box;
     }
 
+    /* HEADER */
     header {
       position: fixed;
       top: 0;
@@ -29,8 +30,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 20; /* ✅ increased to keep nav clickable */
-      background: rgba(0, 0, 0, 0.5);
+      z-index: 20;
+      background: rgba(0, 0, 0, 0.3);
+      color: #fff;
       backdrop-filter: blur(4px);
       flex-wrap: wrap;
     }
@@ -40,11 +42,29 @@
       margin: 0;
     }
 
+    /* Hamburger menu - hidden on desktop */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      order: 0;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      transition: all 0.3s;
+    }
+
     nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 15px;
-      z-index: 15; /* ✅ ensure nav above background */
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+      text-align: center;
       position: relative;
     }
 
@@ -60,22 +80,11 @@
       color: #f39c12;
     }
 
-    /* Hamburger menu button - hidden on desktop */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-      order: 0; /* keeps it before nav */
+    nav.show {
+      display: flex;
     }
 
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background-color: #fff;
-      transition: all 0.3s;
-    }
-
+    /* PAGE CONTENT */
     section.page-content {
       position: relative;
       z-index: 10;
@@ -167,7 +176,7 @@
 
     @media (max-width: 992px) {
       header {
-        flex-direction: row; /* keep left-right alignment */
+        flex-direction: row;
         justify-content: space-between;
         align-items: center;
         padding: 15px 25px;
@@ -178,7 +187,7 @@
       }
 
       nav {
-        display: none; /* hidden by default */
+        display: none;
         flex-direction: column;
         width: 100%;
         gap: 10px;
