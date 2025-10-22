@@ -55,6 +55,21 @@
       color: #f39c12;
     }
 
+    /* Hamburger menu button - hidden on desktop */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      transition: all 0.3s;
+    }
+
     section {
       position: relative;
       z-index: 5;
@@ -147,6 +162,27 @@
         padding: 15px 25px;
       }
 
+      /* Show hamburger on tablet/mobile */
+      .hamburger {
+        display: flex;
+      }
+
+      nav {
+        display: none; /* hidden by default */
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        margin-top: 10px;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 10px 0;
+        border-radius: 10px;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
       section {
         padding: 100px 40px 40px;
         align-items: center;
@@ -173,7 +209,7 @@
       }
 
       nav {
-        gap: 10px;
+        padding: 10px 0;
       }
 
       nav a {
@@ -208,7 +244,15 @@
 <body>
   <header>
     <h1>Karthika Sundar</h1>
-    <nav>
+
+    <!-- Hamburger for mobile/tablet -->
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <nav id="nav">
       <a href="index.html">Home</a>
       <a href="about.html" style="color:#f39c12;">About</a>
       <a href="portfolio.html">Portfolio</a>
@@ -255,6 +299,14 @@
       current = (current + 1) % slides.length;
       slides[current].classList.add('active');
     }, 10000);
+
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('show');
+    });
   </script>
 </body>
 </html>
