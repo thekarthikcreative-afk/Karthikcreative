@@ -27,7 +27,7 @@
       align-items: center;
       z-index: 10;
       background: rgba(0, 0, 0, 0.3);
-      color: #fff;
+      flex-wrap: wrap;
     }
 
     header h1 {
@@ -164,9 +164,10 @@
     /* Responsive Styles */
     @media (max-width: 900px) {
       header {
-        flex-direction: row;
+        flex-direction: row; /* keep left-right alignment */
         justify-content: space-between;
         align-items: center;
+        padding: 15px 25px;
       }
 
       .hamburger {
