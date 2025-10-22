@@ -39,6 +39,22 @@
       margin: 0;
     }
 
+    /* Hamburger menu - hidden on desktop */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      order: 0;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      transition: all 0.3s;
+    }
+
     nav {
       display: flex;
       flex-wrap: wrap;
@@ -49,13 +65,17 @@
     nav a {
       color: #fff;
       text-decoration: none;
-      margin: 5px 10px;
+      margin: 5px 6px; /* slightly reduced spacing */
       font-weight: bold;
       transition: color 0.3s;
     }
 
     nav a:hover {
       color: #f39c12;
+    }
+
+    nav.show {
+      display: flex;
     }
 
     /* SECTION CONTENT */
@@ -157,23 +177,38 @@
       }
     }
 
+    @media (max-width: 900px) {
+      .hamburger {
+        display: flex;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        margin-top: 10px;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 10px 0;
+        border-radius: 10px;
+      }
+
+      nav.show {
+        display: flex;
+      }
+    }
+
     @media (max-width: 768px) {
       header {
-        padding: 15px 25px;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
-        text-align: center;
       }
 
       header h1 {
         font-size: 1.4em;
-        margin-bottom: 8px;
-      }
-
-      nav {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
+        margin-bottom: 0;
       }
 
       section {
@@ -229,7 +264,15 @@
 
   <header>
     <h1>Karthika Sundar</h1>
-    <nav>
+
+    <!-- Hamburger for mobile/tablet -->
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <nav id="nav">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="portfolio.html">Portfolio</a>
@@ -275,6 +318,13 @@
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+    });
+
+    // Hamburger menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('show');
     });
   </script>
 
