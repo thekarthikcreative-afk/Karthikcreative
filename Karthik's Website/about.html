@@ -7,14 +7,15 @@
   <link rel="stylesheet" href="style.css" />
 
   <style>
-    /* ✅ Make sure the entire page fills the screen */
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       width: 100%;
-      overflow: hidden;
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', Arial, sans-serif;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      color: #fff;
     }
 
     header {
@@ -28,76 +29,59 @@
       align-items: center;
       z-index: 10;
       background: rgba(0, 0, 0, 0.3);
-      color: #fff;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-size: 1.8em;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
     }
 
     nav a {
       color: #fff;
       text-decoration: none;
-      margin: 0 10px;
       font-weight: bold;
       transition: color 0.3s;
+      font-size: 1em;
     }
 
     nav a:hover {
       color: #f39c12;
     }
 
-    .home {
+    section {
       position: relative;
-      height: 100vh; /* Full viewport height */
-      width: 100vw; /* Full viewport width */
+      z-index: 5;
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: #fff;
-      overflow: hidden;
-    }
-
-    /* 🖼 Fullscreen slideshow styles */
-    .slideshow {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      overflow: hidden;
-    }
-
-    .slideshow img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-
-    .slideshow img.active {
-      opacity: 1;
-    }
-
-    .home-content {
-      z-index: 10;
+      align-items: flex-start;
+      padding: 120px 80px 60px;
+      background: rgba(0, 0, 0, 0.4);
       text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
     }
 
-    .home h2 {
-      font-size: 3em;
-      margin: 0;
+    section h2 {
+      font-size: 2.8em;
+      margin-bottom: 20px;
+      color: #f39c12;
     }
 
-    .home p {
-      font-size: 1.3em;
-      margin-top: 10px;
+    section p {
+      max-width: 800px;
+      line-height: 1.8;
+      font-size: 1.2em;
+      margin-bottom: 20px;
     }
 
     .btn {
-      margin-top: 20px;
       background-color: #f39c12;
       color: #fff;
       border: none;
@@ -124,9 +108,103 @@
       background: rgba(0, 0, 0, 0.3);
       z-index: 5;
     }
-  </style>
 
+    /* 🖼 Fullscreen slideshow background */
+    .slideshow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .slideshow img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slideshow img.active {
+      opacity: 1;
+    }
+
+    /* =======================
+       ✅ Responsive Design 
+       ======================= */
+
+    /* Tablets */
+    @media (max-width: 992px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 25px;
+      }
+
+      section {
+        padding: 100px 40px 40px;
+        align-items: center;
+        text-align: center;
+      }
+
+      section h2 {
+        font-size: 2.2em;
+      }
+
+      section p {
+        font-size: 1.1em;
+      }
+    }
+
+    /* Mobiles */
+    @media (max-width: 600px) {
+      header {
+        padding: 10px 20px;
+      }
+
+      header h1 {
+        font-size: 1.4em;
+      }
+
+      nav {
+        gap: 10px;
+      }
+
+      nav a {
+        font-size: 0.9em;
+      }
+
+      section {
+        padding: 100px 20px 60px;
+      }
+
+      section h2 {
+        font-size: 1.8em;
+      }
+
+      section p {
+        font-size: 1em;
+        line-height: 1.6;
+      }
+
+      .btn {
+        padding: 10px 18px;
+        font-size: 0.9em;
+      }
+
+      footer {
+        font-size: 0.8em;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <header>
     <h1>Karthika Sundar</h1>
@@ -141,10 +219,19 @@
 
   <section>
     <h2>About Me</h2>
-    <p>I’m a passionate video editor and creative storyteller with a strong foundation in <b>computer science.</b> After completing my BSc in Computer Science, I pursued my interest in visual storytelling through a <b>diploma in video editing.</b> My journey began with hands-on experience editing projects for the <b>Kaup Hosa Marigudi Temple,</b> where I worked for about five months each, refining my technical skills and creative vision.
-</p>
-    <p>My dedication and curiosity soon led me to <b>Raga Productions,</b> where I currently work as an <b>editor and content creator.</b> Every project I take on is a new opportunity to challenge myself, explore fresh ideas, and deliver my very best. With each edit, I’m building the experience and mindset to take the next big step — to bring my creativity to the world of cinema.</p>
-    <br />
+    <p>
+      I’m a passionate video editor and creative storyteller with a strong foundation in 
+      <b>computer science.</b> After completing my BSc in Computer Science, I pursued my interest 
+      in visual storytelling through a <b>diploma in video editing.</b> My journey began with hands-on 
+      experience editing projects for the <b>Kaup Hosa Marigudi Temple,</b> where I worked for about 
+      five months each, refining my technical skills and creative vision.
+    </p>
+    <p>
+      My dedication and curiosity soon led me to <b>Raga Productions,</b> where I currently work as 
+      an <b>editor and content creator.</b> Every project I take on is a new opportunity to challenge 
+      myself, explore fresh ideas, and deliver my very best. With each edit, I’m building the 
+      experience and mindset to take the next big step — to bring my creativity to the world of cinema.
+    </p>
     <button class="btn" onclick="window.location='portfolio.html'">See My Portfolio</button>
   </section>
 
@@ -162,13 +249,12 @@
   <script>
     const slides = document.querySelectorAll('.slideshow img');
     let current = 0;
-  
+
     setInterval(() => {
       slides[current].classList.remove('active');
       current = (current + 1) % slides.length;
       slides[current].classList.add('active');
     }, 10000);
   </script>
-  
 </body>
 </html>
