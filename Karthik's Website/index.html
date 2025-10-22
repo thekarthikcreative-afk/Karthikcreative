@@ -6,13 +6,12 @@
   <title>Home | Karthika Sundar</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* ✅ Make sure the entire page fills the screen */
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       width: 100%;
-      overflow: hidden;
+      overflow-x: hidden;
       font-family: Arial, sans-serif;
     }
 
@@ -44,17 +43,17 @@
 
     .home {
       position: relative;
-      height: 100vh; /* Full viewport height */
-      width: 100vw; /* Full viewport width */
+      height: 100vh;
+      width: 100vw;
       display: flex;
       justify-content: center;
       align-items: center;
-      text-align: center;
+      text-align: left;
       color: #fff;
       overflow: hidden;
+      padding: 20px;
     }
 
-    /* 🖼 Fullscreen slideshow styles */
     .slideshow {
       position: absolute;
       top: 0;
@@ -82,15 +81,29 @@
 
     .home-content {
       z-index: 10;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
       text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+      max-width: 1200px;
+      margin: 0 auto;
+      flex-wrap: wrap;
     }
 
-    .home h2 {
+    .home-content img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-top: -10px; /* slightly higher than "Hi" */
+    }
+
+    .home-text h2 {
       font-size: 3em;
       margin: 0;
     }
 
-    .home p {
+    .home-text p {
       font-size: 1.3em;
       margin-top: 10px;
     }
@@ -123,6 +136,42 @@
       background: rgba(0, 0, 0, 0.3);
       z-index: 5;
     }
+
+    /* Responsive Styles */
+    @media (max-width: 900px) {
+      .home-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .home-content img {
+        margin-top: 0;
+      }
+
+      .home-text h2 {
+        font-size: 2.5em;
+      }
+
+      .home-text p {
+        font-size: 1.1em;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .home-text h2 {
+        font-size: 2em;
+      }
+
+      .home-text p {
+        font-size: 1em;
+      }
+
+      .home-content img {
+        width: 120px;
+        height: 120px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -138,7 +187,6 @@
   </header>
 
   <section class="home">
-    <!-- 🖼 Full-screen photo slideshow -->
     <div class="slideshow" id="slideshow">
       <img src="Sources/1.jpg" class="active" alt="Slide 1">
       <img src="Sources/2.jpg" alt="Slide 2">
@@ -146,9 +194,14 @@
     </div>
 
     <div class="home-content">
-      <h2>Hi, I'm <span style="color:#f39c12;">Karthika Sundar</span></h2>
-      <p>Video Editor & Content Creator at Raga Productions</p>
-      <button class="btn" onclick="window.location='portfolio.html'">View My Work</button>
+      <!-- Circular Photo -->
+      <img src="Sources/Profile pic.jpeg" alt="Karthika Sundar">
+
+      <div class="home-text">
+        <h2>Hi, I'm <span style="color:#f39c12;">Karthika Sundar</span></h2>
+        <p>Video Editor & Content Creator at Raga Productions</p>
+        <button class="btn" onclick="window.location='portfolio.html'">View My Work</button>
+      </div>
     </div>
   </section>
 
@@ -157,7 +210,6 @@
   </footer>
 
   <script>
-    // 🖼 5-second fullscreen slideshow
     const slides = document.querySelectorAll('.slideshow img');
     let current = 0;
 
