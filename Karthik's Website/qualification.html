@@ -12,12 +12,14 @@
       padding: 0;
       height: 100%;
       width: 100%;
-      overflow: hidden;
       font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      color: #fff;
     }
 
+    /* HEADER */
     header {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
@@ -25,15 +27,29 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 10;
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.4);
       color: #fff;
+      backdrop-filter: blur(4px);
+      z-index: 10;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-size: 1.6em;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 10px;
     }
 
     nav a {
       color: #fff;
       text-decoration: none;
-      margin: 0 10px;
+      margin: 5px 10px;
       font-weight: bold;
       transition: color 0.3s;
     }
@@ -42,24 +58,25 @@
       color: #f39c12;
     }
 
+    /* SECTION CONTENT */
     section {
       position: relative;
-      height: 100vh;
-      width: 100vw;
+      min-height: 100vh;
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      color: #fff;
-      text-align: left;
-      z-index: 5;
       text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
       padding-left: 8%;
+      padding-right: 8%;
+      z-index: 5;
     }
 
     section h2 {
       font-size: 3em;
       margin-bottom: 20px;
+      color: #f39c12;
     }
 
     section p {
@@ -68,8 +85,9 @@
       max-width: 600px;
     }
 
+    /* BUTTON */
     .btn {
-      margin-top: 20px;
+      margin-top: 25px;
       background-color: #f39c12;
       color: #fff;
       border: none;
@@ -86,10 +104,10 @@
       transform: scale(1.05);
     }
 
+    /* FOOTER */
     footer {
-      position: absolute;
+      position: relative;
       bottom: 0;
-      left: 0;
       width: 100%;
       text-align: center;
       padding: 10px 0;
@@ -99,9 +117,9 @@
       z-index: 5;
     }
 
-    /* Slideshow background */
+    /* SLIDESHOW */
     .slideshow {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
@@ -124,10 +142,91 @@
     .slideshow img.active {
       opacity: 1;
     }
+
+    /* 🌐 RESPONSIVE STYLES */
+    @media (max-width: 1024px) {
+      section {
+        padding-left: 6%;
+        padding-right: 6%;
+      }
+      section h2 {
+        font-size: 2.5em;
+      }
+      section p {
+        font-size: 1.2em;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 25px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 1.4em;
+        margin-bottom: 8px;
+      }
+
+      nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      section {
+        align-items: center;
+        text-align: center;
+        padding: 120px 30px 60px;
+      }
+
+      section h2 {
+        font-size: 2.3em;
+      }
+
+      section p {
+        font-size: 1.1em;
+      }
+
+      .btn {
+        font-size: 0.95em;
+        padding: 10px 22px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      section {
+        align-items: center;
+        text-align: center;
+        padding: 100px 20px 50px;
+      }
+
+      section h2 {
+        font-size: 2em;
+      }
+
+      section p {
+        font-size: 1em;
+        max-width: 90%;
+      }
+
+      .btn {
+        font-size: 0.9em;
+        padding: 10px 20px;
+      }
+
+      nav a {
+        margin: 6px;
+        font-size: 0.9em;
+      }
+    }
   </style>
 
 </head>
 <body>
+
   <header>
     <h1>Karthika Sundar</h1>
     <nav>
@@ -141,10 +240,8 @@
 
   <section>
     <h2>Qualification</h2>
-    <p>Bachelor’s Degree in [Your Course Name], [Your University Name].</p>
-    <p>Explore my academic and professional journey below.</p>
-
-    <!-- Resume Download Button -->
+    <p><b>BSc in Computer Science</b>, Mangalore University.</p>
+    <p>Also completed a <b>Diploma in Video Editing</b>, combining technical expertise with creative storytelling.</p>
     <a href="Sources/noc-36199016.pdf" class="btn" id="downloadResume">📄 Download Resume</a>
   </section>
 
@@ -152,7 +249,7 @@
     <p>© 2025 Karthika Sundar. All rights reserved.</p>
   </footer>
 
-  <!-- Slideshow background -->
+  <!-- Background slideshow -->
   <div class="slideshow">
     <img src="Sources/1.jpg" class="active" alt="Slide 1">
     <img src="Sources/2.jpg" alt="Slide 2">
@@ -160,7 +257,7 @@
   </div>
 
   <script>
-    // Slideshow
+    // 🔁 Slideshow rotation
     const slides = document.querySelectorAll('.slideshow img');
     let current = 0;
     setInterval(() => {
@@ -169,7 +266,7 @@
       slides[current].classList.add('active');
     }, 10000);
 
-    // Force download for resume
+    // 📄 Force file download
     document.getElementById('downloadResume').addEventListener('click', function(e) {
       e.preventDefault();
       const link = document.createElement('a');
