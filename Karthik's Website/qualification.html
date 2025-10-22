@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qualification | Karthika Sundar</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.3);
+      color: #fff;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #f39c12;
+    }
+
+    section {
+      position: relative;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      color: #fff;
+      text-align: left;
+      z-index: 5;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+      padding-left: 8%;
+    }
+
+    section h2 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    section p {
+      font-size: 1.3em;
+      margin: 10px 0;
+      max-width: 600px;
+    }
+
+    .btn {
+      margin-top: 20px;
+      background-color: #f39c12;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1em;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background-color: #e67e22;
+      transform: scale(1.05);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
+      color: #fff;
+      font-size: 0.9em;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 5;
+    }
+
+    /* Slideshow background */
+    .slideshow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .slideshow img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slideshow img.active {
+      opacity: 1;
+    }
+  </style>
+
+</head>
+<body>
+  <header>
+    <h1>Karthika Sundar</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="qualification.html" style="color:#f39c12;">Qualification</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Qualification</h2>
+    <p>Bachelor’s Degree in [Your Course Name], [Your University Name].</p>
+    <p>Explore my academic and professional journey below.</p>
+
+    <!-- Resume Download Button -->
+    <a href="Sources/noc-36199016.pdf" class="btn" id="downloadResume">📄 Download Resume</a>
+  </section>
+
+  <footer>
+    <p>© 2025 Karthika Sundar. All rights reserved.</p>
+  </footer>
+
+  <!-- Slideshow background -->
+  <div class="slideshow">
+    <img src="Sources/1.jpg" class="active" alt="Slide 1">
+    <img src="Sources/2.jpg" alt="Slide 2">
+    <img src="Sources/3.jpg" alt="Slide 3">
+  </div>
+
+  <script>
+    // Slideshow
+    const slides = document.querySelectorAll('.slideshow img');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 10000);
+
+    // Force download for resume
+    document.getElementById('downloadResume').addEventListener('click', function(e) {
+      e.preventDefault();
+      const link = document.createElement('a');
+      link.href = 'Sources/noc-36199016.pdf';
+      link.download = 'Karthika_Sundar_Resume.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  </script>
+
+</body>
+</html>

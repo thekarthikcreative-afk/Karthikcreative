@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Karthika Sundar</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden; /* ✅ Only hide horizontal scroll, not vertical */
+      color: #fff;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      backdrop-filter: blur(4px);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #f39c12;
+    }
+
+    section {
+      position: relative;
+      z-index: 5;
+      padding: 120px 50px 100px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.8);
+    }
+
+    section h2 {
+      font-size: 2.5em;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #f39c12;
+    }
+
+    .portfolio-item {
+      margin-bottom: 50px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .portfolio-item h3 {
+      font-size: 1.5em;
+      color: #f39c12;
+      margin-bottom: 10px;
+    }
+
+    .portfolio-item p {
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 400px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    footer {
+      position: relative;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
+      color: #fff;
+      font-size: 0.9em;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 5;
+    }
+
+    /* 🔹 Fullscreen slideshow background */
+    .slideshow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .slideshow img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slideshow img.active {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Karthika Sundar</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html" style="color:#f39c12;">Portfolio</a>
+      <a href="qualification.html">Qualification</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>My Work</h2>
+
+    <div class="portfolio-item">
+      <h3>Kasaragod silk factory</h3>
+      <p>The video about Kerala's Kasaragod Silks Factory shows elderly artisans who, despite their age and struggles, continue to weave with dedication and pride, keeping the rich tradition alive through their hard work and resilience.</p>
+      <iframe 
+        src="https://www.youtube.com/embed/mqDnc_Tj1SI" 
+        title="YouTube video player" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="portfolio-item">
+      <h3>Kerala's Coconut Coir Industry</h3>
+      <p>The video about Kerala's Coconut Coir Industry highlights how skilled workers transform coconut husks into eco-friendly coir products, showcasing Kerala's traditional craftsmanship and sustainable livelihood practices.</p>
+      <iframe 
+        src="https://www.youtube.com/embed/tw3cx7AtmJE" 
+        title="YouTube video player" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="portfolio-item">
+      <h3>Navalgund Durrie</h3>
+      <p>The video about Navalgund Durry showcases the traditional handwoven cotton rugs made by women artisans in Navalgund, Karnataka, highlighting their vibrant geometric patterns and cultural heritage.</p>
+      <iframe 
+        src="https://www.youtube.com/embed/L81InCASar8" 
+        title="YouTube video player" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+  </section>
+
+  <footer>
+    <p>© 2025 Karthika Sundar. All rights reserved.</p>
+  </footer>
+
+  <!-- 🔹 Background slideshow -->
+  <div class="slideshow">
+    <img src="Sources/1.jpg" class="active" alt="Slide 1">
+    <img src="Sources/2.jpg" alt="Slide 2">
+    <img src="Sources/3.jpg" alt="Slide 3">
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slideshow img');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 10000);
+  </script>
+</body>
+</html>
