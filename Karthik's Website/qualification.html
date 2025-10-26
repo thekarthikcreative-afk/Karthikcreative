@@ -285,7 +285,6 @@
     <h2>Qualification</h2>
     <p><b>BSc in Computer Science</b>, Mangalore University.</p>
     <p>Also completed a <b>Diploma in Video Editing</b>, combining technical expertise with creative storytelling.</p>
-    <a href="Sources/noc-36199016.pdf" class="btn" id="downloadResume">📄 Download Resume</a>
   </section>
 
   <footer>
@@ -308,17 +307,6 @@
       current = (current + 1) % slides.length;
       slides[current].classList.add('active');
     }, 10000);
-
-    // 📄 Force file download
-    document.getElementById('downloadResume').addEventListener('click', function(e) {
-      e.preventDefault();
-      const link = document.createElement('a');
-      link.href = 'Sources/noc-36199016.pdf';
-      link.download = 'Karthika_Sundar_Resume.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    });
 
     // Hamburger menu toggle
     const hamburger = document.getElementById('hamburger');
