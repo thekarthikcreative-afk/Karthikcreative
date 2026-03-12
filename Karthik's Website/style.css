@@ -1,4 +1,5 @@
 /* style.css */
+
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +12,8 @@ body {
   color: #fff;
   scroll-behavior: smooth;
 }
+
+/* HEADER */
 
 header {
   background: rgba(0, 0, 0, 0.8);
@@ -25,6 +28,8 @@ header h1 {
   font-size: 1.6em;
 }
 
+/* NAVIGATION */
+
 nav a {
   color: #fff;
   margin-left: 25px;
@@ -36,6 +41,8 @@ nav a:hover {
   color: #f39c12;
 }
 
+/* SECTIONS */
+
 section {
   padding: 80px 60px;
   min-height: 80vh;
@@ -45,6 +52,8 @@ h2 {
   color: #f39c12;
   margin-bottom: 20px;
 }
+
+/* BUTTON */
 
 .btn {
   background: #f39c12;
@@ -59,6 +68,8 @@ h2 {
   background: #d35400;
 }
 
+/* FOOTER */
+
 footer {
   text-align: center;
   padding: 25px;
@@ -67,6 +78,8 @@ footer {
   font-size: 0.9em;
 }
 
+/* VIDEO EMBEDS (YouTube etc.) */
+
 iframe {
   width: 100%;
   height: 315px;
@@ -74,7 +87,16 @@ iframe {
   border: none;
 }
 
+/* GOOGLE DRIVE LINK */
+
 a.drive-link {
   color: #f39c12;
   text-decoration: underline;
+}
+
+/* INSTAGRAM EMBED FIX */
+
+.instagram-container {
+  display: flex;
+  justify-content: center;
 }
