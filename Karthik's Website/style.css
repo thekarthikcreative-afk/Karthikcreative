@@ -1,6 +1,6 @@
 /* style.css */
 
-/* General iframe reset - removes the fixed 315px height */
+/* General iframe reset */
 iframe {
   width: 100%;
   border-radius: 10px;
@@ -16,7 +16,7 @@ iframe {
 }
 
 .youtube-container iframe {
-  aspect-ratio: 16 / 9; /* Automatically sets correct height for YouTube */
+  aspect-ratio: 16 / 9; 
   height: auto;
 }
 
@@ -28,5 +28,7 @@ iframe {
 }
 
 .instagram-container iframe {
-  height: 800px; /* Specific tall height for Reels */
+  /* Reduced height to 600px to hide the caption/likes area */
+  height: 600px; 
+  background: #000; /* Keeps it clean while loading */
 }
