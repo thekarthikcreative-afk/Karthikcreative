@@ -31,20 +31,6 @@ header h1 {
   white-space: nowrap;
 }
 
-/* --- HAMBURGER MENU ADDITION --- */
-.hamburger {
-  display: none; /* Hidden by default on desktop */
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-}
-
-.hamburger div {
-  width: 25px;
-  height: 3px;
-  background-color: #fff;
-}
-
 /* Navigation Links */
 nav {
   display: flex;
@@ -55,7 +41,7 @@ nav a {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.85em; 
+  font-size: 0.85em; /* Smaller to fit more links on mobile */
   transition: 0.3s;
 }
 
@@ -63,27 +49,18 @@ nav a:hover {
   color: #f39c12;
 }
 
-/* --- MOBILE RESPONSIVE FIX --- */
-@media (max-width: 900px) {
-  .hamburger {
-    display: flex; /* Show 3 lines on mobile */
+/* Responsive fix for Mobile Header */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    padding: 10px;
   }
 
   nav {
-    display: none; /* Hide words on mobile until clicked */
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    padding: 20px;
-    text-align: center;
-    gap: 15px;
-  }
-
-  nav.show {
-    display: flex; /* Show menu when toggle is active */
+    margin-top: 10px;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
@@ -113,24 +90,17 @@ h2 {
   border-radius: 10px;
 }
 
-/* --- FIXED INSTAGRAM CONTAINER (The "Mask" Fix) --- */
+/* Instagram Container */
 .instagram-container {
   width: 100%;
   max-width: 450px;
-  height: 530px;    /* Fixed height to crop the bottom */
   margin: 20px auto;
-  overflow: hidden; /* Hides the parts we don't want to see */
-  border-radius: 12px;
-  position: relative;
 }
 
 .instagram-container iframe {
+  height: 580px; /* Cut off likes/comments */
   width: 100%;
-  height: 650px;    /* Taller than container to allow cropping */
-  position: absolute;
-  top: -48px;       /* This hides the "View Profile" white bar at the top */
-  left: 0;
-  border: none;
+  border-radius: 10px;
 }
 
 footer {
